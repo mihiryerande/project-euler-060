@@ -1,4 +1,7 @@
-# Project Euler - Problem 60 - Prime Pair Sets
+# Project Euler
+
+## Problem 60 - Prime Pair Sets
+
 The primes `3`, `7`, `109`, and `673`, are quite remarkable.
 
 By taking any two primes and concatenating them in any order the result will always be prime.
