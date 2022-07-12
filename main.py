@@ -12,9 +12,24 @@
 from itertools import combinations
 from math import floor, sqrt
 from scipy.sparse import dok_matrix
+from typing import List, Tuple
 
 
-def is_prime(x):
+def is_prime(x: int) -> bool:
+    """
+    Returns True iff `x` is prime.
+
+    Args:
+        x (int): Natural number
+
+    Returns:
+        (bool): True iff `x` is prime
+
+    Raises:
+        AssertError: if incorrect args are given
+    """
+    assert type(x) == int and x > 0
+
     mid = floor(sqrt(x)) + 1
     for d in range(2, mid):
         if x % d == 0:
@@ -22,13 +37,29 @@ def is_prime(x):
     return True
 
 
-def is_pairwise_concatable(x, y):
+def is_pairwise_concatable(x: int, y: int) -> bool:
+    """
+    Returns True iff `x` and `y` are pairwise-concatable.
+
+    Args:
+        x (int): Natural number
+        y (int): Natural number
+
+    Returns:
+        (bool): True iff `x` and `y` are pairwise-concatable
+
+    Raises:
+        AssertError: if incorrect args are given
+    """
+    assert type(x) == int and x > 0
+    assert type(y) == int and y > 0
+
     sx = str(x)
     sy = str(y)
     return is_prime(int(sx+sy)) and is_prime(int(sy+sx))
 
 
-def main(k):
+def main(k: int) -> Tuple[List[int], int]:
     """
     Returns the set of primes of size `k` having the lowest sum,
       such that all pairwise concatenations of those primes are also primes.
